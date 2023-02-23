@@ -421,13 +421,13 @@ $config['proxy_ips'] = '';
 
 //____________________________________________________________________________
 //default email from
-$config['from_mail'] = getEnv('FROM_MAIL') ?: 'do.not@reply.me';
+$config['from_mail'] = getEnv('FROM_MAIL') ?: 'noreply@aspose.com';
 $config['from_name'] = 'Jorani';
 $config['subject_prefix'] = '[Jorani] ';
 
 //____________________________________________________________________________
 //User management
-$config['disable_capitalization'] = FALSE;    //Set this value to TRUE if you want to disable the capitalization of lastname
+$config['disable_capitalization'] = getEnv('DISABLE_CAPITALIZATION');    //Set this value to TRUE if you want to disable the capitalization of lastname
 $config['password_length'] = 8;                    //Password minimal length
 $config['default_role_id'] = 2;                       //Default role id (e.g. 2 for user)
 //Login pattern (automatically created from firstname and lastname)
@@ -461,7 +461,7 @@ $config['disallow_requests_without_credit'] = TRUE;
 //____________________________________________________________________________
 //List of available languages. If you limit this list to one language, the list of available languages will be hidden from the login form
 //Beware that regional variant is case sensitivie (e.g. "en-GB" and not "en-gb")
-$config['languages'] = 'en,en-GB,fr,es,nl,de,it,ru,cs,uk,km,fa,vi,tr,zh,el,pt,ar,hu,ca,ro';
+$config['languages'] = 'en-GB,en,fr,es,nl,de,it,ru,cs,uk,km,fa,vi,tr,zh,el,pt,ar,hu,ca,ro';
 
 //If you want to use another font for a specific language, put the font into assets/fonts folder and map as in this example
 //Extra fonts are coming from Google noto font project: https://www.google.com/get/noto/
@@ -496,20 +496,20 @@ $config['ga_send_userid'] = FALSE;
 
 //____________________________________________________________________________
 //LDAP configuration
-$config['ldap_enabled'] = FALSE;
-$config['ldap_host'] = '127.0.0.1';
-$config['ldap_port'] = 389;
-$config['ldap_basedn'] = 'uid=%s,ou=people,dc=company,dc=com';  //Change the pattern, but let %s that symbolizes the user identifier
+$config['ldap_enabled'] = getEnv('LDAP_ENABLED');
+$config['ldap_host'] = getEnv('LDAP_HOST');
+$config['ldap_port'] = getEnv('LDAP_PORT');;
+$config['ldap_basedn'] = getEnv('LDAP_BASEDN');;  //Change the pattern, but let %s that symbolizes the user identifier
 //If you switch on <<ldap_search_enabled>>, <<ldap_basedn>> may look like "OU=Users,DC=COMPANY,DC=COM"
 $config['ldap_basedn_db'] = FALSE;      //If TRUE, ldap path is taken from user table
 
 //Use a LDAP search filter as a connection alternative
 //Note that you need to switch <<ldap_enabled>> to TRUE and fill <<ldap_host>>,
 //<<ldap_port>>, and <<ldap_basedn>>
-$config['ldap_search_enabled'] = FALSE;
-$config['ldap_search_user'] = '';
-$config['ldap_search_password'] = '';
-$config['ldap_search_pattern'] = 'cn=%s';   //Change the pattern, but let %s that symbolizes the user identifier
+$config['ldap_search_enabled'] = getEnv('LDAP_SEARCH_ENABLED');
+$config['ldap_search_user'] = getEnv('LDAP_SEARCH_USER');
+$config['ldap_search_password'] = getEnv('LDAP_SEARCH_PASSWORD');
+$config['ldap_search_pattern'] = getEnv('LDAP_SEARCH_PATTERN');;   //Change the pattern, but let %s that symbolizes the user identifier
 
 //____________________________________________________________________________
 //Oauth2 configuration
@@ -526,7 +526,7 @@ $config['saml_enabled'] = FALSE;
 //____________________________________________________________________________
 //Enable public ICS feeds (global calendar, contract, personal information)
 $config['ics_enabled'] = TRUE;
-$config['default_timezone'] = 'Europe/Paris';
+$config['default_timezone'] = getEnv('DEFAULT_TIMEZONE');
 $config['legacy_feeds'] = FALSE;    //Maintain the unsecure URLs for ICS feeds
 
 //____________________________________________________________________________
