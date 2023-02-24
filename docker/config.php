@@ -421,7 +421,7 @@ $config['proxy_ips'] = '';
 
 //____________________________________________________________________________
 //default email from
-$config['from_mail'] = getEnv('FROM_MAIL') ?: 'noreply@aspose.com';
+$config['from_mail'] = getEnv('FROM_MAIL');
 $config['from_name'] = 'Jorani';
 $config['subject_prefix'] = '[Jorani] ';
 
@@ -498,8 +498,8 @@ $config['ga_send_userid'] = FALSE;
 //LDAP configuration
 $config['ldap_enabled'] = getEnv('LDAP_ENABLED');
 $config['ldap_host'] = getEnv('LDAP_HOST');
-$config['ldap_port'] = getEnv('LDAP_PORT');;
-$config['ldap_basedn'] = getEnv('LDAP_BASEDN');;  //Change the pattern, but let %s that symbolizes the user identifier
+$config['ldap_port'] = getEnv('LDAP_PORT');
+$config['ldap_basedn'] = getEnv('LDAP_BASEDN');  //Change the pattern, but let %s that symbolizes the user identifier
 //If you switch on <<ldap_search_enabled>>, <<ldap_basedn>> may look like "OU=Users,DC=COMPANY,DC=COM"
 $config['ldap_basedn_db'] = FALSE;      //If TRUE, ldap path is taken from user table
 
@@ -509,7 +509,7 @@ $config['ldap_basedn_db'] = FALSE;      //If TRUE, ldap path is taken from user 
 $config['ldap_search_enabled'] = getEnv('LDAP_SEARCH_ENABLED');
 $config['ldap_search_user'] = getEnv('LDAP_SEARCH_USER');
 $config['ldap_search_password'] = getEnv('LDAP_SEARCH_PASSWORD');
-$config['ldap_search_pattern'] = getEnv('LDAP_SEARCH_PATTERN');;   //Change the pattern, but let %s that symbolizes the user identifier
+$config['ldap_search_pattern'] = getEnv('LDAP_SEARCH_PATTERN');   //Change the pattern, but let %s that symbolizes the user identifier
 
 //____________________________________________________________________________
 //Oauth2 configuration
