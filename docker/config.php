@@ -427,7 +427,7 @@ $config['subject_prefix'] = '[Jorani] ';
 
 //____________________________________________________________________________
 //User management
-$config['disable_capitalization'] = getEnv('DISABLE_CAPITALIZATION');    //Set this value to TRUE if you want to disable the capitalization of lastname
+$config['disable_capitalization'] = filter_var(getEnv('DISABLE_CAPITALIZATION'), FILTER_VALIDATE_BOOLEAN);    //Set this value to TRUE if you want to disable the capitalization of lastname
 $config['password_length'] = 8;                    //Password minimal length
 $config['default_role_id'] = 2;                       //Default role id (e.g. 2 for user)
 //Login pattern (automatically created from firstname and lastname)
@@ -496,7 +496,7 @@ $config['ga_send_userid'] = FALSE;
 
 //____________________________________________________________________________
 //LDAP configuration
-$config['ldap_enabled'] = getEnv('LDAP_ENABLED');
+$config['ldap_enabled'] = filter_var(getEnv('LDAP_ENABLED'), FILTER_VALIDATE_BOOLEAN);;
 $config['ldap_host'] = getEnv('LDAP_HOST');
 $config['ldap_port'] = getEnv('LDAP_PORT');
 $config['ldap_basedn'] = getEnv('LDAP_BASEDN');  //Change the pattern, but let %s that symbolizes the user identifier
@@ -506,7 +506,7 @@ $config['ldap_basedn_db'] = FALSE;      //If TRUE, ldap path is taken from user 
 //Use a LDAP search filter as a connection alternative
 //Note that you need to switch <<ldap_enabled>> to TRUE and fill <<ldap_host>>,
 //<<ldap_port>>, and <<ldap_basedn>>
-$config['ldap_search_enabled'] = getEnv('LDAP_SEARCH_ENABLED');
+$config['ldap_search_enabled'] = filter_var(getEnv('LDAP_SEARCH_ENABLED'), FILTER_VALIDATE_BOOLEAN);
 $config['ldap_search_user'] = getEnv('LDAP_SEARCH_USER');
 $config['ldap_search_password'] = getEnv('LDAP_SEARCH_PASSWORD');
 $config['ldap_search_pattern'] = getEnv('LDAP_SEARCH_PATTERN');   //Change the pattern, but let %s that symbolizes the user identifier
