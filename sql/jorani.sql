@@ -525,3 +525,6 @@ KEY `param_name` (`name`, `scope`)
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 ALTER TABLE oauth_clients CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE users
+    ADD CONSTRAINT users_login_unique UNIQUE (login);
+CREATE INDEX login_index ON users (login);
